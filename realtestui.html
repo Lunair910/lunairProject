@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanks a million</title>
+    <link rel="shortcut icon" href="./pic/snowmanicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="gift.css" />
+  </head>
+  <body>
+    <audio id="myAudio">
+      <source src="./audio/ยิ้มง่ายedit.mp3" type="audio/mpeg" />
+    </audio>
+
+    <img class="floatObj" src="./pic/butterflytype1.png" />
+    <img class="floatObj" src="./pic/butterflytype2.png" />
+    <img class="floatObj" src="./pic/butterflytype3.png" />
+
+    <div class="container">
+      <h2>Just a gift for you, the wonderful you are.</h2>
+      <button id="openPopupBtn" class="gift-button" onclick="openGift()">
+        <img
+          id="giftLid"
+          src="./pic/gift-top-removebackground.png"
+          class="lid"
+        />
+        <img id="giftBox" src="./pic/gift-bottom.png" class="box" />
+      </button>
+    </div>
+
+    <div id="popup" class="popup-overlay">
+      <div class="popup-content">
+        <h2>To someone I want to give it to</h2>
+        <p>From Rome</p>
+        <p>
+          วันนี้เป็นยังไงบ้าง? <br />
+          เหนื่อยบ้างไหม<br />
+          ระหว่างวันมีเครียดบ้างหรือเปล่า แต่ไม่เป็นไรหรอก ม่อนเก่งอยู่แล้ว<br /><br /><br>
+
+          "นี่ๆ รู้ไหมว่าคนเราน่ะ ขอแค่มีกำลังใจดีๆ
+          ก็จะทำได้เต็มที่มากขึ้นล่ะ"<br /><br /><br>
+
+          ถึงจะเคยเล่าไปแล้ว แต่ก็ขอเล่าละเอียดหน่อยนะ.. <br />
+          เราขอบคุณม่อนมากเลยนะ ที่ช่วยเติมเต็มเรา ถึงเราจะรู้จักกันได้ไม่นาน
+          แต่ก็อยากบอกให้รู้ไว้นะว่า ม่อนจะเป็นอีกคนที่เข้ามาเปลี่ยนชีวิตเรา<br /><br /><br>
+          หลังจากที่เรามีแฟนคนล่าสุดแล้ว เราก็ไม่เคยรู้สึกอยากจะมีความรักอีกเลย
+          ไม่ใช่ว่าเพราะไม่อยากเจ็บ ไม่ใช่ว่าเพราะมีความทรงจำที่ไม่ดี
+          แต่เป็นเพราะเราเห็นว่า เราไม่จำเป็นต้องมีความรัก
+          เราก็ใช้ชีวิตของเราอย่างมีความสุขในแบบของเราได้
+          เราจึงมองว่าการจะมีแฟนสักคนก็คงไม่ทำให้อะไรดีขึ้น <br /><br /><br>
+          แต่แล้ววันนี้ การได้รู้จักกับม่อน ก็ช่วยให้เราได้เห็นอะไรที่ชัดขึ้น
+          มันช่วยเปลี่ยนมุมมองของเราที่ว่า ต่อให้ไม่มีแฟนเราก็อยู่ของเราได้
+          แต่การที่มีใครสักคนให้คุย ใครสักคนที่เราคุยด้วยแล้วสบายใจ
+          ใครที่เราพร้อมจะแชร์เรื่องราวต่างๆให้เขาได้รับฟัง
+          นั่นทำให้เรารู้สึกดีมากกว่าการเก็บไว้คนเดียวสะอีก <br /><br /><br>
+          ขอบคุณม่อนที่เข้ามาเปลี่ยนชีวิตของคนๆนึงให้ดีมากขึ้นกว่าเดิมด้วยนะ
+          ถ้ามีม่อนให้คุยด้วย เราก็คงจะไม่เหงาเหมือนที่ผ่านมาแล้วล่ะ!
+          <br /><br /><br /><br>
+          เพราะฉะนั้นแล้ว มารับกำลังใจจากเราไปนะ! ถ้าม่อนอยากให้เรายิ้ม
+          เราก็จะยิ้มให้ม่อนดูคนเดียวเลย! x)
+        </p>
+        <div class="slideshow-container">
+          <div class="slide fade">
+            <img src="./pic/whiteDaisy-removebg.png" alt="" />
+          </div>
+          <div class="slide fade">
+            <img src="./pic/rabbittype1.png" alt="" />
+          </div>
+          <div class="slide fade">
+            <img src="./pic/graycat.png" alt="" />
+          </div>
+
+          <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+        </div>
+        <button id="closePopup" class="close-btn" onclick="closeForm()">
+          Close
+        </button>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const objects = document.querySelectorAll(".floatObj");
+
+      function moveRandom(obj) {
+        const maxX = window.innerWidth - obj.clientWidth;
+        const maxY = window.innerHeight - obj.clientHeight;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        obj.style.transition = "transform 3s ease-in-out";
+        obj.style.transform = `translate(${x}px, ${y}px)`;
+      }
+
+      objects.forEach(obj => {
+        moveRandom(obj);
+        setInterval(() => moveRandom(obj), 3000);
+      });
+    });
+
+    // function myAudio() {
+    //   const song = document.querySelector("#myAudio");
+    //   song.volume = 0;
+    //   song.play();
+
+    //   let fadeInterval = setInterval(function () {
+    //     if (song.volume < 1) {
+    //       song.volume += 0.1;
+    //     }
+    //     if (song.volume >= 1) {
+    //       clearInterval(fadeInterval);
+    //     }
+    //   }, 200);
+    // }
+
+    let isPlaying = false;
+    let isFadingIn = false;
+
+    ////// FADE IN OUT FUNCTION //////
+    function fadeIn(audio, duration = 4000, targetVolume = 0.5) {
+      if (isPlaying || isFadingIn) return;
+
+      isFadingIn = true;
+      audio.volume = 0;
+      audio.play();
+
+      let step = 50;
+      let v = (targetVolume - 0) / (duration / step);
+
+      let interval = setInterval(() => {
+        if (audio.volume < targetVolume) {
+          audio.volume = Math.min(targetVolume, audio.volume + v);
+        } else {
+          audio.volume = targetVolume;
+          clearInterval(interval);
+
+          isPlaying = true;
+          isFadingIn = false;
+        }
+      }, step);
+    }
+
+    /////// FADE OUT FUNCTION ///////
+    function fadeOut(audio, duration = 4000) {
+      let step = 50;
+      let v = step / duration;
+
+      let interval = setInterval(() => {
+        if (audio.volume > 0) {
+          audio.volume = Math.max(0, audio.volume - v);
+        } else {
+          audio.pause();
+          audio.currentTime = 0;
+          clearInterval(interval);
+
+          isPlaying = false;
+        }
+      }, step);
+    }
+
+    function openGift() {
+      const btn = document.getElementById("openPopupBtn");
+      btn.classList.add("open");
+      const audio = document.getElementById("myAudio");
+      // var audio = document.getElementById("myAudio");
+      // audio.play();
+
+      fadeIn(audio, 2000);
+
+      audio.addEventListener(
+        "Timeupdate",
+        function () {
+          let fadeOutDuration = 2000;
+          if (audio.duration - audio.currentTime <= fadeOutDuration / 1000) {
+            fadeOut(audio, fadeOutDuration);
+          }
+        },
+        { once: true }
+      );
+
+      setTimeout(() => {
+        openForm();
+      }, 600);
+    }
+
+    function openForm() {
+      const popup = document.getElementById("popup");
+      popup.style.display = "block"; // ต้องมีเพื่อให้ transition ทำงาน
+      setTimeout(() => popup.classList.add("show"), 10); // ให้ fade-in ค่อย ๆ
+    }
+
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
+    }
+
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      if (n > slides.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+      for (i = 0; i < slideIndex.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+
+    function closeForm() {
+      const popup = document.getElementById("popup");
+      const btn = document.getElementById("openPopupBtn");
+      // var audio = document.getElementById("myAudio");
+      // audio.pause();
+      // audio.currentTime = 0;
+      btn.classList.remove("open");
+      popup.classList.remove("show");
+      setTimeout(() => {
+        popup.style.display = "none"; // ซ่อนหลัง fade-out เสร็จ
+      }, 400); // เวลาเดียวกับ transition
+    }
+  </script>
+</html>
